@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Manager.PageObjectManager;
 import Pages.Page_homePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,6 +14,8 @@ import io.cucumber.java.en.When;
 
 public class Step_homePage {
 		
+	public PageObjectManager pom;
+	private Page_homePage hp;
 	public String url = "https://www.worldometers.info";
 	public String driverPath = "C://Users//Dell//Desktop//Selenium//chromedriver.exe";
 	
@@ -49,7 +52,8 @@ public class Step_homePage {
 
 	@Given("I want to write a step with {string}")
 	public void i_want_to_write_a_step_with(String string) {
-		Page_homePage hp = new Page_homePage();
+		pom = new PageObjectManager();		
+		hp = pom.getHomePage();
 		hp.homePageTest();
 		System.out.println(string);
 	}

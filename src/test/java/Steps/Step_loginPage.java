@@ -1,5 +1,6 @@
 package Steps;
 
+import Manager.PageObjectManager;
 import Pages.Page_loginPage;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
@@ -9,6 +10,7 @@ import io.cucumber.java.en.When;
 
 public class Step_loginPage {
 	
+	public PageObjectManager pom;
 	public static Page_loginPage lp;
 	
     @Before
@@ -19,7 +21,7 @@ public class Step_loginPage {
 	
 	@Given("some other precondition")
 	public void some_other_precondition() {
-		lp = new Page_loginPage();
+		lp = new PageObjectManager().getLoginPage();
 		lp.loginPageTest();
 
 	}
