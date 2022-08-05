@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Pages.Page_homePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -46,22 +47,22 @@ public class Step_homePage {
 		System.out.println(crt);
 	}
 
-	@Given("I want to write a step with name1")
-	public void i_want_to_write_a_step_with_name1() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Given("I want to write a step with {string}")
+	public void i_want_to_write_a_step_with(String string) {
+		Page_homePage hp = new Page_homePage();
+		hp.homePageTest();
+		System.out.println(string);
 	}
 
 	@When("I check for the {int} in step")
 	public void i_check_for_the_in_step(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		System.out.println(int1);
 	}
 
-	@Then("I verify the success in step")
-	public void i_verify_the_success_in_step() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("I verify the {string} in step")
+	public void i_verify_the_in_step(String string) {
+		System.out.println(string);
 	}
+
 
 }
