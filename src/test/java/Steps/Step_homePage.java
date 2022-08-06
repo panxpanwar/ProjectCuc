@@ -11,16 +11,15 @@ public class Step_homePage {
 	public Step_pageObjectManager pom;
 	private Page_homePage hp;
 	
-	public Step_homePage() {
-		pom = new Step_pageObjectManager();	
-		hp = pom.getHomePage();	
-		
+	public Step_homePage(Step_pageObjectManager pom) {
+		this.pom = pom;	
+		hp = pom.getHomePage();			
 	}
 	   
 
 	@Given("I naviagte to worldometer home page")
 	public void i_naviagte_to_worldometer_home_page() {
-		
+
 
 		}
 

@@ -14,8 +14,8 @@ public class Step_loginPage {
 	public Step_pageObjectManager pom;
 	public static Page_loginPage lp;
    
-    public Step_loginPage() {
-		pom = new Step_pageObjectManager();		
+    public Step_loginPage(Step_pageObjectManager pom) {
+		this.pom = pom;		
 		lp = pom.getLoginPage();
     }
 	
