@@ -5,10 +5,10 @@
 
 Feature: Verify Home Page
 
- # Scenario: Verify total world Population
-  #  Given I naviagte to worldometer home page
- #   And I click  on world population link
- #   Then System displays worlds population
+  Scenario: Verify total world Population
+    Given I naviagte to worldometer home page
+    And I click  on world population link
+    Then System displays worlds population
 
 
 

@@ -1,6 +1,7 @@
 package Steps;
 
-import Manager.PageObjectManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import Pages.Page_loginPage;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
@@ -10,18 +11,24 @@ import io.cucumber.java.en.When;
 
 public class Step_loginPage {
 	
-	public PageObjectManager pom;
+	public Step_pageObjectManager pom;
 	public static Page_loginPage lp;
+   
+    public Step_loginPage() {
+		pom = new Step_pageObjectManager();		
+		
+    }
 	
-    @Before
+	
 	@Given("I want to write a step with precondition")
 	public void i_want_to_write_a_step_with_precondition() {
 		System.out.println("print......I want to write a step with precondition");
+
 	}
 	
 	@Given("some other precondition")
 	public void some_other_precondition() {
-		lp = new PageObjectManager().getLoginPage();
+		lp = pom.getLoginPage();
 		lp.loginPageTest();
 
 	}
