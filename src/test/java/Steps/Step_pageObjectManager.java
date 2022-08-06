@@ -13,26 +13,25 @@ import io.cucumber.java.Before;
 public class Step_pageObjectManager {
 	private Page_homePage hp;
 	private Page_loginPage lp;
-	public static WebDriver driver;
-	public String driverPath = "C://Users//Dell//Desktop//Selenium//chromedriver.exe";	
-	public String url = "https://www.worldometers.info/world-population/";
+	private static WebDriver driver;
+	private String driverPath = "C://Users//Dell//Desktop//Selenium//chromedriver.exe";	
+	private String url = "https://www.worldometers.info/world-population/";
 	
 	@Before
 	public void  openBrowser() {
-		
+		if (driver==null) {
 		System.setProperty("webdriver.chrome.driver",driverPath);
-		driver = new ChromeDriver();		
+		driver = new ChromeDriver();	}	
 		driver.get(url);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
-		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
 	}
 	
 	
 	@After
 	public void closeBrowser() {
 		driver.close();
+		driver = null;
 	}
 	
 	public Page_homePage getHomePage() {

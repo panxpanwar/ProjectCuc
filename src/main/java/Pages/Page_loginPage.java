@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Page_loginPage {
 	
-	private static WebDriver driver;
+	private WebDriver driver;
 	
 	public Page_loginPage(WebDriver driver) {
 		this.driver = driver;
@@ -17,6 +17,11 @@ public class Page_loginPage {
 		
 		 String crt = driver.findElement(By.xpath("//div[@class='maincounter-number']")).getText();			
 			System.out.println("Login Page Data........"+crt);
+	}
+	
+	public void birthThisYear() {
+		 String crt = driver.findElement(By.xpath("//span[@class='rts-counter'][@rel='births_this_year']")).getText();			
+		System.out.println("Birth This Year........"+crt);
 	}
 
 

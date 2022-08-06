@@ -16,7 +16,7 @@ public class Step_loginPage {
    
     public Step_loginPage() {
 		pom = new Step_pageObjectManager();		
-		
+		lp = pom.getLoginPage();
     }
 	
 	
@@ -28,7 +28,6 @@ public class Step_loginPage {
 	
 	@Given("some other precondition")
 	public void some_other_precondition() {
-		lp = pom.getLoginPage();
 		lp.loginPageTest();
 
 	}
@@ -40,6 +39,7 @@ public class Step_loginPage {
 	}
 	@When("some other action")
 	public void some_other_action() {
+		lp.birthThisYear();
 
 	}
 	@When("yet another action")
