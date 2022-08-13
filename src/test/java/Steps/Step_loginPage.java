@@ -23,6 +23,11 @@ public class Step_loginPage {
 	@Given("I want to write a step with precondition")
 	public void i_want_to_write_a_step_with_precondition() {
 		System.out.println("print......I want to write a step with precondition");
+		pom.myLog().log().warn("My Log Warn Message............");
+		pom.myLog().log().debug("My Log debug Message............");
+		pom.myLog().log().error("My Log error Message............");
+		pom.myLog().log().fatal("My Log fatal Message............");
+		pom.myLog().log().info("My Log info Message............");
 
 	}
 	

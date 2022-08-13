@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import Pages.Page_homePage;
 import Pages.Page_loginPage;
 import Utils.ConfigData;
+import Utils.MyLog;
 import Utils.MyTestData;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,6 +18,7 @@ public class Step_pageObjectManager {
 	private Page_loginPage lp;
 	private ConfigData cd;
 	private MyTestData ed;
+	private MyLog ml;
 	private static WebDriver driver;
 	private String driverPath =  System.getProperty("user.dir")+"/src/main/java/Driver/chromedriver.exe"; //"C://Users//Dell//Desktop//Selenium//chromedriver.exe";	
 	private String url = getConfig().getUrl(); //"https://www.worldometers.info/world-population/";
@@ -63,6 +65,13 @@ public class Step_pageObjectManager {
 		   ed=new MyTestData(System.getProperty("user.dir")+"/src/main/java/TestData/TestData.xlsx");
 	   }	   
 	   return ed;
+   }
+   
+   public MyLog myLog() {
+	   if(ml==null) {
+		   ml=new MyLog();
+	   }	   
+	   return ml;
    }
 
 }
