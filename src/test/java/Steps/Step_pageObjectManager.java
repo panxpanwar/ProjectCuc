@@ -7,15 +7,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import Pages.Page_homePage;
 import Pages.Page_loginPage;
+import Utils.ConfigData;
+import Utils.MyTestData;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 public class Step_pageObjectManager {
 	private Page_homePage hp;
 	private Page_loginPage lp;
+	private ConfigData cd;
+	private MyTestData ed;
 	private static WebDriver driver;
-	private String driverPath = "C://Users//Dell//Desktop//Selenium//chromedriver.exe";	
-	private String url = "https://www.worldometers.info/world-population/";
+	private String driverPath =  System.getProperty("user.dir")+"/src/main/java/Driver/chromedriver.exe"; //"C://Users//Dell//Desktop//Selenium//chromedriver.exe";	
+	private String url = getConfig().getUrl(); //"https://www.worldometers.info/world-population/";
 	
 	@Before
 	public void  openBrowser() {
@@ -47,6 +51,18 @@ public class Step_pageObjectManager {
 		return lp;
 	}
 	
+   public ConfigData getConfig() {
+	   if(cd==null) {
+		   cd=new ConfigData();
+	   }	   
+	   return cd;
+   }
 
+   public MyTestData getExcelData() {
+	   if(ed==null) {
+		   ed=new MyTestData(System.getProperty("user.dir")+"/src/main/java/TestData/TestData.xlsx");
+	   }	   
+	   return ed;
+   }
 
 }

@@ -19,7 +19,7 @@ public class Step_homePage {
 
 	@Given("I naviagte to worldometer home page")
 	public void i_naviagte_to_worldometer_home_page() {
-
+      System.out.println("Excel Data.....  "+pom.getExcelData().getExcelData("Sheet1", 0, 0));
 
 		}
 
