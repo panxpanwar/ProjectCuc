@@ -1,5 +1,7 @@
 package Steps;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -7,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import Pages.Page_homePage;
 import Pages.Page_loginPage;
+import Utils.CaptureScreen;
 import Utils.ConfigData;
 import Utils.MyLog;
 import Utils.MyTestData;
@@ -18,10 +21,12 @@ public class Step_pageObjectManager {
 	private Page_loginPage lp;
 	private ConfigData cd;
 	private MyTestData ed;
+	private CaptureScreen msc;
 	private MyLog ml;
 	private static WebDriver driver;
 	private String driverPath =  System.getProperty("user.dir")+"/src/main/java/Driver/chromedriver.exe"; //"C://Users//Dell//Desktop//Selenium//chromedriver.exe";	
 	private String url = getConfig().getUrl(); //"https://www.worldometers.info/world-population/";
+	private String scrnPath = "C:\\projectScreenshots\\";
 	
 	@Before
 	public void  openBrowser() {
@@ -72,6 +77,16 @@ public class Step_pageObjectManager {
 		   ml=new MyLog();
 	   }	   
 	   return ml;
+   }
+   
+   public CaptureScreen myScreenCap(String testName) {
+	   if(msc==null) {
+		   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");  
+		   LocalDateTime now = LocalDateTime.now();  
+		 //  String str = scrnPath+dtf.format(now)+testName+".png";
+		   msc=new CaptureScreen(driver, scrnPath+dtf.format(now)+testName+".png");
+	   }			   
+	   return msc;
    }
 
 }

@@ -33,6 +33,7 @@ public class Step_homePage {
 	@Then("System displays worlds population")
 	public void system_displays_worlds_population() {
 		hp.todaysBirth();
+		pom.myScreenCap("todayBirth");
 
 	}
 

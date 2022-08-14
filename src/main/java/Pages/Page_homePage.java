@@ -16,7 +16,7 @@ public class Page_homePage {
 		System.out.println("Home Page Test...........");
 		 String crt = driver.findElement(By.xpath("//div[@class='maincounter-number']")).getText();			
 			System.out.println("Home Page Data........"+crt);
-		
+	
 	}
 	
 	public void todaysBirth() {
